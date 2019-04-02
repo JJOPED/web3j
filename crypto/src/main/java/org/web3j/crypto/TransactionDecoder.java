@@ -19,7 +19,7 @@ public class TransactionDecoder {
         String to = ((RlpString) values.getValues().get(3)).asString();
         BigInteger value = ((RlpString) values.getValues().get(4)).asPositiveBigInteger();
         String data = ((RlpString) values.getValues().get(5)).asString();
-        if (values.getValues().size() > 6) {
+        if (values.getValues().size() > 6  && values.getValues().get(7) instanceof RlpString) {
             byte v = ((RlpString) values.getValues().get(6)).getBytes()[0];
             byte[] r = Numeric.toBytesPadded(
                 Numeric.toBigInt(((RlpString) values.getValues().get(7)).getBytes()), 32);
